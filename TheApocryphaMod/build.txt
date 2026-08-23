@@ -1,3 +1,0 @@
-displayName = Apocrypha
-author = LifelineStudios
-version = 0.1

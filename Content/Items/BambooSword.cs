@@ -14,12 +14,13 @@ namespace TheApocryphaMod.Content.Items
 		{
 			Item.damage = 16;
 			Item.DamageType = DamageClass.Melee;
-			Item.width = 80;
-			Item.height = 80;
+			Item.width = 40;
+			Item.height = 40;
 			Item.useTime = 40;
+			Item.scale = 1.35f;
 			Item.useAnimation = 40;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 6;
+			Item.knockBack = 4;
 			Item.value = Item.buyPrice(silver: 1);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;

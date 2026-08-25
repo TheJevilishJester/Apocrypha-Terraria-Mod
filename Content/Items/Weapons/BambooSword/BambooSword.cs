@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ApocryphaAnimatorBranch.Content.Projectiles;
 
-namespace TheApocryphaMod.Content.Items
+namespace TheApocryphaMod.Content.Items.Weapons.BambooSword
 {
     public class BambooSword : ModItem
     {

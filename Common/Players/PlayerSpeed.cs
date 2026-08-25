@@ -7,8 +7,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using TheApocryphaMod;
-// TODO:
-// Make the movespeed bonuses based on variables
 namespace TheApocryphaMod.Common.Players
 {
     public class PlayerSpeed : ModPlayer

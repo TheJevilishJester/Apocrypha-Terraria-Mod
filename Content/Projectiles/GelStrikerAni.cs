@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ApocryphaAnimatorBranch.Content.Projectiles
+namespace TheApocryphaMod.Content.Projectiles
 {
     public class GelStrikerAni : ModProjectile
     {

@@ -8,6 +8,7 @@
 		
 	</PropertyGroup>
 	<ItemGroup>
+	  <Folder Include="Common\" />
 	  <Folder Include="Content\Items\Weapons\WandOfGoop\" />
 	</ItemGroup>
 

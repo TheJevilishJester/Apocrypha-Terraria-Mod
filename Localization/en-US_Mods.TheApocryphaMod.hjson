@@ -16,4 +16,21 @@ Items: {
 		DisplayName: Bamboo Sword
 		Tooltip: ""
 	}
+
+	CrownJewel: {
+		DisplayName: Crown Jewel
+		Tooltip: ""
+	}
+
+	GelStriker: {
+		DisplayName: Gel Striker
+		Tooltip: ""
+	}
+
+	RoyalShiv: {
+		DisplayName: Royal Shiv
+		Tooltip: ""
+	}
 }
+
+Projectiles.BambooSwordAni.DisplayName: Bamboo Sword Ani

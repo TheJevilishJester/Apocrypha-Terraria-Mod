@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheApocryphaMod.Content.Projectiles;
 
 namespace TheApocryphaMod.Content.Items.Weapons.RoyalShiv
 {
@@ -22,7 +23,7 @@ namespace TheApocryphaMod.Content.Items.Weapons.RoyalShiv
             Item.rare = ItemRarityID.Pink;
             Item.value = Item.buyPrice(gold: 23); // Sell price is 5 times less than the buy price.
             Item.DamageType = DamageClass.Melee;
-            Item.shoot = ModContent.ProjectileType<ExampleSwingingEnergySwordProjectile>();
+            Item.shoot = ModContent.ProjectileType<BambooSwordAni>();
             Item.noMelee = true; // This is set the sword itself doesn't deal damage (only the projectile does).
             Item.shootsEveryUse = true; // This makes sure Player.ItemAnimationJustStarted is set when swinging.
             Item.autoReuse = true;
@@ -40,10 +41,10 @@ namespace TheApocryphaMod.Content.Items.Weapons.RoyalShiv
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
         public override void AddRecipes()
         {
-            CreateRecipe()
-                .AddIngredient<>(12)
-                .AddTile(TileID.MythrilAnvil) // This includes both the Mythril and Orichalcum Anvils.
-                .Register();
+            var recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.StoneBlock, 10);
+            recipe.AddTile(TileID.WorkBenches); // This includes both the Mythril and Orichalcum Anvils.
+            recipe.Register();
         }
     }
 }

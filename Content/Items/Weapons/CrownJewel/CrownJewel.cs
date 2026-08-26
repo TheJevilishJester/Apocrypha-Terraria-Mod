@@ -27,7 +27,7 @@ namespace TheApocryphaMod.Content.Items.Weapons.CrownJewel
             Item.autoReuse = false; // Whether or not you can hold click to automatically use it again.
 
             // The sound that this item plays when used.
-            Item.UseSound = new SoundStyle($"{nameof(TestingMod)}/Assets/Sounds/Items/Guns/ExampleGun")
+            Item.UseSound = new SoundStyle("Terraria/Sounds/Custom/Dd2 dark mage attack 0")
             {
                 Volume = 0.9f,
                 PitchVariance = 0.2f,

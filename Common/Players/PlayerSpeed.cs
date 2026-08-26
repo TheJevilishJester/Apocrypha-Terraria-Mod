@@ -11,42 +11,42 @@ namespace TheApocryphaMod.Common.Players
 {
     public class PlayerSpeed : ModPlayer
     {
-        private static float baseMovespeed = 0.2F;
+        private static float baseMovespeed = 1.2F;
         private static float bootMoveSpeedBuff = 1.2F;
         private static float fastBootMoveSpeedBuff = 1.35F;
         
         public void IncreaseBaseSpeed(float baseMoveSpeed) {
-            Player.moveSpeed += baseMoveSpeed;
+            Player.moveSpeed *= baseMoveSpeed;
         }
 
         public void IncreaseRunSpeed(float runSpeedBuff)
         {
             Player.accRunSpeed += runSpeedBuff;
         }
-
-        // A flat bonus applied early on in the movement process
-        public override void PostUpdateMiscEffects()
-        {
-            IncreaseBaseSpeed(baseMovespeed);
-        }
-        
-        
-        // A flat bonus applied late in the movement process
-        public override void PostUpdateRunSpeeds()
-        {
-            // The faster boots have a runspeed of 6.75F, this If/Else checks which kind of boot you are wearing and applies accordingly
-            if (Player.accRunSpeed<=6.1F)
+            
+            // A flat bonus applied early on in the movement process
+            public override void PostUpdateMiscEffects()
             {
-                IncreaseRunSpeed(fastBootMoveSpeedBuff);
+                IncreaseBaseSpeed(baseMovespeed);
             }
-            else
+            
+            
+            // A flat bonus applied late in the movement process
+            public override void PostUpdateRunSpeeds()
             {
-                if (Player.accRunSpeed<=6F)
+                // The faster boots have a runspeed of 6.75F, this If/Else checks which kind of boot you are wearing and applies accordingly
+                if (Player.accRunSpeed<=6.1F && Player.accRunSpeed>5.9F)
                 {
-                    IncreaseRunSpeed(bootMoveSpeedBuff);
+                    IncreaseRunSpeed(fastBootMoveSpeedBuff);
+                }
+                else
+                {
+                    if (Player.accRunSpeed<=6F && Player.accRunSpeed>5.9F)
+                    {
+                        IncreaseRunSpeed(bootMoveSpeedBuff);
+                    }
                 }
             }
-        }
 
         
         

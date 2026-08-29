@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TheApocryphaMod.Content.Projectiles
+namespace ApocryphaAnimatorBranch.Content.Projectiles
 {
     public class GelStrikerAni : ModProjectile
     {
@@ -44,9 +44,9 @@ namespace TheApocryphaMod.Content.Projectiles
                 boosted = MathHelper.Clamp(boosted, 0f, 1f);
             }
 
-            // you can edit -130 and 110, they are the arcs of the sword
-            float start = MathHelper.ToRadians(-130f);
-            float end = MathHelper.ToRadians(110f);
+            // you can edit -120 and 120, they are the arcs of the sword
+            float start = MathHelper.ToRadians(-120f);
+            float end = MathHelper.ToRadians(120f);
             Projectile.rotation = MathHelper.Lerp(start, end, boosted);
 
             if (player.direction == -1)
@@ -69,6 +69,25 @@ namespace TheApocryphaMod.Content.Projectiles
                 // overall scale of projectile (for sword)
                 Projectile.scale = 1.25f;
             }
+        }
+
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+        {
+            float swordLength = 50f * Projectile.scale;
+
+            Vector2 start = Projectile.Center;
+            Vector2 end = start + Projectile.rotation.ToRotationVector2() * swordLength;
+
+            float collisionPoint = 0f;
+
+            return Collision.CheckAABBvLineCollision(
+                targetHitbox.TopLeft(),
+                targetHitbox.Size(),
+                start,
+                end,
+                12f,
+                ref collisionPoint
+            );
         }
 
         public override void PostDraw(Color lightColor)
@@ -96,3 +115,4 @@ namespace TheApocryphaMod.Content.Projectiles
         }
     }
 }
+

@@ -38,6 +38,7 @@ namespace TheApocryphaMod.Content.Items.Weapons.GelStriker
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<GelStrikerAni>();
             Item.shootSpeed = 0f;
+            Item.noMelee = true;
         }
 
         public override void AddRecipes()

@@ -27,6 +27,7 @@ namespace TheApocryphaMod.Content.Items.Weapons.BambooSword
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<BambooSwordAni>();
             Item.shootSpeed = 0f;
+            Item.noMelee = true;
         }
 
         public override void AddRecipes()

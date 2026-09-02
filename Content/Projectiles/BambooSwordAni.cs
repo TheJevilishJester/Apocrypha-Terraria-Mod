@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TheApocryphaMod.Content.Projectiles
+namespace ApocryphaAnimatorBranch.Content.Projectiles
 {
     public class BambooSwordAni : ModProjectile
     {
@@ -69,6 +69,25 @@ namespace TheApocryphaMod.Content.Projectiles
                 // overall scale of projectile (for sword)
                 Projectile.scale = 1.25f;
             }
+        }
+
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+        {
+            float swordLength = 50f * Projectile.scale;
+
+            Vector2 start = Projectile.Center;
+            Vector2 end = start + Projectile.rotation.ToRotationVector2() * swordLength;
+
+            float collisionPoint = 0f;
+
+            return Collision.CheckAABBvLineCollision(
+                targetHitbox.TopLeft(),
+                targetHitbox.Size(),
+                start,
+                end,
+                12f,
+                ref collisionPoint
+            );
         }
 
         public override void PostDraw(Color lightColor)
